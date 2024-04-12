@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Bootcamp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(WP-Trends_1200x627-540x282.jpeg);
+            background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: black;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Web Development Platform</h1>
+        <form id="loginForm" onsubmit="return false;">
+            <input type="text" id="username" placeholder="Enter your name"><br>
+            <button onclick="login()">Enter</button>
+        </form>
+        <div id="loader" class="loader" style="display: none;"></div>
+        <div id="message" style="display: none;"></div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var loader = document.getElementById('loader');
+            var message = document.getElementById('message');
+
+            // Show loader
+            loader.style.display = 'block';
+
+            // Simulate loading time
+            setTimeout(function() {
+                // Hide loader
+                loader.style.display = 'none';
+
+                // Show success message
+                message.innerHTML = 'Congratulations, ' + username + '! You have successfully entered.';
+                message.style.display = 'block';
+
+                // Redirect to the welcome platform after 2 seconds
+                setTimeout(function() {
+                    window.location.href = 'welcome.html';
+                }, 2000);
+            }, 2000);
+
+            return false;
+        }
+    </script>
+</body>
+</html>
